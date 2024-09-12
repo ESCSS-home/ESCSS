@@ -1,14 +1,212 @@
-# ESCSS - "The Intersection of Wind and Destiny"
-![wanderer](./img/wanderer.png)
-*Why have you drifted here, wanderer?*
-*Your figure is shrouded in the silence of wailing.*
+![logo](./img/logo.png)
+## What is ESCSS?
 
-*For many years... the silver bullet people have been seeking, is it a dream? Or an illusion?*
+  - ESCSS = extra structure (BEM) CSS + pay tribute to ECMAScript
+  - ESCSS (pronounced 'escapes') is a Silver Bullet methodology, inspired by The Mythical Man-Month, designed to resolve software dilemmas and reduce developer frustration.
 
-![riven-repentance](./img/riven-repentance.png)
-*Awaken, awaken, break free from the shackles of the past.*
-![broken-blade](./img/broken-blade.png)
-*Awaken, awaken, the silver bullet shining in the darkness.*
+## Is ESCSS the Silver Bullet?
+### I think it is, and here's why
+  1. CSS and JavaScript have ranked in the Top 3 on Stack Overflow from 2017 to 2024 and work well across different platforms like websites, apps, and games.
+  2. While CSS and JavaScript are easy to use, they can be challenging to maintain. That's where ESCSS comes in to simplify and enhance the process.
+  3. ESCSS combines object-oriented programming with a pure functional paradigm.
 
-**"Which weighs more, Riven（CSS）? Your blade(BEM), or your past?"**
-![riven-vs-yasuo](./img/riven-vs-yasuo.png)
+
+## Core Concept - Essence Complexity
+  Group similar stuff, extract common elements, and repeat endlessly.
+
+  ![loop](./img/loop.gif)
+  
+## Example
+  An example of CardVue.vue(component) using [ESCSS-ESTest](https://github.com/ESCSS-home/ESCSS-ESTest) & [ESCSS-SCSS](https://github.com/ESCSS-home/ESCSS-SCSS)
+
+  ```vue
+  <script setup>
+  import { ESTest } from 'escss-ESTest'; // testing library
+
+  // Follow the component name
+  const CardVue = {
+    data: {
+      enable: true,
+    },
+    in: {
+      // Extract repeated inner function here
+      reuse: {
+        getWord: (word) => {
+          {
+            ESTest(word, 'string', 'mike 09092024 4')
+          }
+
+          console.log(word)
+        }
+      },
+      // Provide inner function for output function
+      getGreeting: () => {
+        CardVue.in.reuse.getWord('Hello world')
+      },
+      getName: () => {
+        CardVue.in.reuse.getWord('Hi Mike!')
+      }
+    },
+    out: {
+      // Output function for use
+      sum: (a, b) => {
+        {
+          ESTest(a, 'number', 'mike 09092024 1')
+          ESTest(b, 'number', 'mike 09092024 2')
+          ESTest(CardVue.data.enable, '===', true, 'mike 09092024 3')
+        }
+
+        CardVue.in.getGreeting() // example of in、reuse function
+        return a + b
+      }
+    }
+  }
+
+  CardVue.out.sum(1, 2) // 3 & console.log('Hello world')
+  </script>
+
+  <template>
+    <main>
+      <div id="🔥PersonCard">
+        <img id="🔥PersonCard__Img" src="https://tailwindcss.com/img/erin-lindford.jpg" alt="Woman's Face" />
+        <div id="🔥PersonCard__Div">
+          <div id="🔥PersonCard__Div__Box">
+            <p id="🔥PersonCard__Div__Box__Name">Erin Lindford</p>
+            <p id="🔥PersonCard__Div__Box__Title">Product Engineer</p>
+          </div>
+          <button id="🔥PersonCard__Div__Button">Message</button>
+        </div>
+      </div>
+
+      <div id="🍎UIComponent">
+        A UI component (choose any emoji that you like)
+      </div>
+    </main>
+  </template>
+
+  <style lang="scss">
+  #🍎UIComponent {
+    margin-top: 20px;
+    @include bg-green-300;
+    @include utils_reset-tw;
+  }
+
+  #🔥PersonCard {
+    @include py-8;
+    @include px-8;
+    @include max-w-sm;
+    @include mx-auto;
+    @include bg-white;
+    @include rounded-xl;
+    @include shadow-lg;
+    @include space-y-2;
+
+    @include sm {
+      @include py-4;
+      @include flex;
+      @include items-center;
+      @include space-y-0;
+      @include space-x-6;
+    }
+
+    @include utils_reset-tw; // to reset some of tailwind variables
+  }
+
+  #🔥PersonCard__Img {
+    @include block;
+    @include mx-auto;
+    @include h-24;
+    @include rounded-full;
+
+    @include sm {
+      @include mx-0;
+      @include shrink-0;
+    }
+
+    @include utils_reset-tw;
+  }
+
+  #🔥PersonCard__Div {
+    @include text-center;
+    @include space-y-2;
+
+    @include sm {
+      @include text-left;
+    }
+
+    @include utils_reset-tw;
+  }
+
+  #🔥PersonCard__Div__Box {
+    @include space-y-0\.5;
+    @include utils_reset-tw;
+  }
+
+  #🔥PersonCard__Div__Box__Name {
+    @include text-lg;
+    @include font-semibold;
+    @include utils_reset-tw;
+  }
+
+  #🔥PersonCard__Div__Box__Title {
+    @include text-slate-500;
+    @include font-medium;
+    @include utils_reset-tw;
+  }
+
+  #🔥PersonCard__Div__Button {
+    @include px-4;
+    @include py-1;
+    @include text-sm;
+    @include text-purple-600;
+    @include font-semibold;
+    @include rounded-full;
+    @include border;
+    @include border-purple-200;
+
+    &:hover {
+      @include text-white;
+      @include bg-purple-600;
+      @include border-transparent;
+    }
+
+    &:focus {
+      @include outline-none;
+      @include ring-offset-2;
+      @include ring-2;
+      @include ring-purple-600;
+    }
+
+    @include utils_reset-tw;
+  }
+  </style>
+  ```
+### Demo
+  ![demo](./img/demo.png)
+
+### 1. JavaScript part
+#### Mutation: 
+  - I think Mutations can be more efficient than immutable operations.
+  - Use ESCSS-ESTest to make functions to be pure function.
+
+### 2. CSS part
+#### ID: 
+  - Keep HTML clean.
+  - Maintain flat specificity (1,0,0) in general.
+  - Handle Bootstrap !important situation.
+
+#### Status Class: 
+  - Use !important by design to override IDs.
+
+#### Developer Experience: 
+  - Increase devtool readability.
+  - Do not use Sass/SCSS &__ to replace id name, because you will lose convenient of copy/search/replace
+
+#### Naming Convention:
+  - PascalCase: 🔥CardVue (follows component name for consistency).
+  - Double Underscore (__): 🔥Card__Box__CardText.
+  - Double hyphen(--) in status class: --dark、--active
+  - Emojis for organization/readability: Page component (🌀), component (🔥)、UI component(choose any emoji that you like).
+  - Meaningless element: Follow the element name (e.g., 🔥Card__Box__A).
+
+  **This is my favorite version, you might have different prefer but you got the idea**
