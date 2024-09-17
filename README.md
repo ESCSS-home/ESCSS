@@ -17,7 +17,7 @@
   ![loop](./img/loop.gif)
   
 ## Example
-  An example of CardVue.vue(component) using [ESCSS-ESTest](https://github.com/ESCSS-home/ESCSS-ESTest) & [ESCSS-SCSS](https://github.com/ESCSS-home/ESCSS-SCSS)
+  An example of CardVue.vue(component) using [ESCSS-ESTest](https://github.com/ESCSS-lab/ESCSS-ESTest) & [ESCSS-SCSS](https://github.com/ESCSS-lab/ESCSS-SCSS)
 
   ```vue
   <script setup>
