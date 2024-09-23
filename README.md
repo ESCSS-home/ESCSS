@@ -85,6 +85,9 @@
   </template>
 
   <style lang="scss">
+  // base css
+  @include utils_base-preflight-v3-modify;
+
   #🍎UIComponent {
     margin-top: 20px;
     @include bg-green-300;
