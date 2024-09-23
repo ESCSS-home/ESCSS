@@ -1,4 +1,4 @@
-![logo](./img/logo.png)
+![logo](./assets/logo.png)
 ## What is ESCSS?
 
   - ESCSS = extra structure (BEM) CSS + pay tribute to ECMAScript
@@ -14,7 +14,7 @@
 ## Core Concept - Essence Complexity
   Group similar stuff, extract common elements, and repeat endlessly.
 
-  ![loop](./img/loop.gif)
+  ![loop](./assets/loop.gif)
   
 ## Example
   An example of CardVue.vue(component) using [ESCSS-ESTest](https://github.com/ESCSS-labs/ESCSS-ESTest) & [ESCSS-SCSS](https://github.com/ESCSS-labs/ESCSS-SCSS)
@@ -185,7 +185,7 @@
   </style>
   ```
 ### Demo
-  ![demo](./img/demo.png)
+  ![demo](./assets/demo.png)
 
 ### 1. JavaScript part
 #### Mutation: 
