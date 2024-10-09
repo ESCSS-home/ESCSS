@@ -21,15 +21,13 @@
 
   ```vue
   <script setup>
-  import { ESTest } from 'escss-ESTest'; // testing library
+  import { ESTest } from 'escss-estest';
 
-  // Follow the component name
   const CardVue = {
     data: {
       enable: true,
     },
     in: {
-      // Extract repeated inner function here
       reuse: {
         getWord: (word) => {
           {
@@ -39,16 +37,11 @@
           console.log(word)
         }
       },
-      // Provide inner function for output function
       getGreeting: () => {
         CardVue.in.reuse.getWord('Hello world')
       },
-      getName: () => {
-        CardVue.in.reuse.getWord('Hi Mike!')
-      }
     },
     out: {
-      // Output function for use
       sum: (a, b) => {
         {
           ESTest(a, 'number', 'mike 09092024 1')
@@ -56,13 +49,13 @@
           ESTest(CardVue.data.enable, '===', true, 'mike 09092024 3')
         }
 
-        CardVue.in.getGreeting() // example of in、reuse function
+        CardVue.in.getGreeting()
         return a + b
       }
     }
   }
 
-  CardVue.out.sum(1, 2) // 3 & console.log('Hello world')
+  CardVue.out.sum(1, 2)
   </script>
 
   <template>
@@ -85,13 +78,12 @@
   </template>
 
   <style lang="scss">
-  // base css
-  @include utils_base-preflight-v3-modify;
+  @include utils_base-preflight-v3-modify; // built-in base css
 
   #🍎UIComponent {
-    margin-top: 20px;
-    @include bg-green-300;
-    @include utils_reset-tw;
+    margin-top: 20px; // use vanilla css
+    @include bg-green-300; // use tailwind utility in Sass
+    @include utils_reset-tw; // reset tailwind variables
   }
 
   #🔥PersonCard {
@@ -112,7 +104,7 @@
       @include space-x-6;
     }
 
-    @include utils_reset-tw; // to reset some of tailwind variables
+    @include utils_reset-tw;
   }
 
   #🔥PersonCard__Img {
@@ -201,9 +193,33 @@
 #### Status Class: 
   - Use !important by design to override IDs.
 
+  ```scss
+  .--active {
+    background: red !important;
+  }
+  ```
+
 #### Developer Experience: 
   - Increase devtool readability.
-  - Do not use Sass/SCSS &__ to replace id name, because you will lose convenient of copy/search/replace
+  - Suggest to use case 2 for easy to copy/search/replace
+  ``` scss
+  <!-- case 1 -->
+  #🔥PersonCard {
+    // ...
+    &__Img {
+      // ...
+    }
+  }
+
+  <!-- case 2 -->
+  #🔥PersonCard {
+    // ... 
+  }
+  #🔥PersonCard__Img {
+    // ...
+  }
+
+  ```
 
 #### Naming Convention:
   - PascalCase: 🔥CardVue (follows component name for consistency).
